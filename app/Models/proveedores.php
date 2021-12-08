@@ -14,11 +14,17 @@ class proveedores extends Model
 
     protected $fillable =[
         'nombre',
+        'nombre_empresa',
         'apellido_paterno',
         'apellido_materno',
+        'nit',
         'ci',
         'edad',
-        'telefono'
+        'email',
+        'direccion',
+        'ciudad',
+        'telefono',
+        'estado'
     ];
 
     protected $guarded =[

@@ -14,7 +14,6 @@ class tipodeproducto extends Model
 
     protected $fillable =[
         'nombre',
-        'tipo',
         'descripcion'
     ];
 

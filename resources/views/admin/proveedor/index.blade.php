@@ -32,10 +32,9 @@
             <tr>
                 <th class="btn-dark">id</th>
                 <th class="btn-dark">nombre</th>
-                <th class="btn-dark">apellido paterno</th>
-                <th class="btn-dark">apellido materno</th>
-                <th class="btn-dark">ci</th>
-                <th class="btn-dark">edad</th>
+                <th class="btn-dark">Empresa</th>
+                
+                
                 <th class="btn-dark">telefono</th>
                 <th class="btn-dark">acciones</th>
                 
@@ -46,14 +45,11 @@
             <tr>
                 <td>{{$prov->proveedores_id}}</td>
                 <td>{{$prov->nombre}}</td>
-                <td>{{$prov->apellido_paterno}}</td>
-                <td>{{$prov->apellido_materno}}</td>
-                <td>{{$prov->ci}}</td>
-                <td>{{$prov->edad}}</td>
+                <td>{{$prov->nombre_empresa}}</td>
                 <td>{{$prov->telefono}}</td>
                 <td>
                     <a href="{{route('admin.proveedor.edit',$prov->proveedores_id)}}" class="btn btn-info"><i class="material-icon">editar</i></a>
-                    
+                    <a href="{{route('admin.proveedor.show',$prov->proveedores_id)}}" class="btn btn-sm btn-info"><i class="material-icon">perfil</i></a>
                     <form action="{{route('admin.proveedor.destroy',$prov->proveedores_id)}}" method="post" style="display:inline">
                     @csrf
                     @method('delete')

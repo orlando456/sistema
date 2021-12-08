@@ -21,7 +21,18 @@
                     </div>
                 </div>
             </div>
-    <a href="{{route('admin.usuario.create')}}"><button class="btn btn-success">NUEVO REGISTRO<span></span></button></a>
+            <div class="card-body">
+                @if (session('success'))
+                <div class="alert alert-success" role="success">
+                    {{session('success')}}
+                </div>
+                @endif
+            </div>
+            <div class="row">
+                <div class="col-12 text right" >
+    <a href="{{route('admin.usuario.create')}}"> <button type="button" class="btn btn-primary btn-sm">AÑADIR USUARIOS</button> </a>
+                </div>
+            </div>
     <div class="card">
         <div class=" card-body ">
             
@@ -46,13 +57,13 @@
                 
                 <td class="td-actions text-right">
 
-                    <a href="{{route('admin.usuario.editrol',$us->id)}}" class="btn btn-info"><i class="material-icon">Rol</i></a>
-                    <a href="{{route('admin.usuario.edit',$us->id)}}" class="btn btn-info"><i class="material-icon">editar</i></a>
-                    
+                    <a href="{{route('admin.usuario.editrol',$us->id)}}" class="btn btn-sm btn-info"><i class="material-icon">Rol</i></a>
+                    <a href="{{route('admin.usuario.edit',$us->id)}}" class="btn btn-sm btn-info"><i class="material-icon">edit</i></a>
+                    <a href="{{route('admin.usuario.show',$us->id)}}" class="btn btn-sm btn-info"><i class="material-icon">perfil</i></a>
                     <form action="{{route('admin.usuario.destroy',$us->id)}}" method="post" style="display:inline">
                     @csrf
                     @method('delete')
-                    <button class="btn btn-danger" type="submit">eliminar<span></span></button></a>
+                    <button class="btn btn-sm btn-danger" type="submit">X<span></span></button></a>
                     </form>
                 
                 </td>

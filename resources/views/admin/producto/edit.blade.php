@@ -59,13 +59,13 @@
                 </div>    
                 <br>
                 <div class="from-gruop">
-                    <label from="precio" class="control-label">{{('precio: ')}}</label> 
-                    <input type="text" name="precio" value="{{$producto->precio}}">
+                    <label from="precio_venta" class="control-label">{{('precio de venta: ')}}</label> 
+                    <input type="text" name="precio_venta" value="{{$producto->precio_venta}}">
                 </div>    
                 <br>
                 <div class="from-gruop">
-                    <label from="logotipo" class="control-label">{{('logotipo: ')}}</label> 
-                    <input type="text" name="logotipo" value="{{$producto->logotipo}}">
+                    <label from="stock" class="control-label">{{('stock: ')}}</label> 
+                    <input type="text" name="stock" value="{{$producto->stock}}">
                 </div>    
                 <br>
                 <div class="from-gruop">
@@ -95,7 +95,7 @@
                 <br>
 
                 <td>
-                    <a href=""><button class="btn btn-primary" type="submit">EDITAR<span></span></button></a>
+                    <a href=""><button class="btn btn-primary" type="submit">ACTUALIZAR<span></span></button></a>
                 </td>
             </form>
 

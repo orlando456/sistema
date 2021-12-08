@@ -9,13 +9,12 @@
 @stop
 
 @section('content_header')
-    <h1>VISTA COMPRA</h1>
+    <h1>COMPRAS</h1>
 @stop
 
 @section('content')
-    <p>LISTA DE COMPRAS </p>
-    <p>-------</p>
     <a href="{{route('admin.compra.create')}}"><button class="btn btn-danger">NUEVO REGISTRO<span></span></button></a>
+    <a href="{{route('admin.compra.Reporte')}}"><button class="btn btn-dark">Imprimir PDF<span></span></button></a>
     <div class="card">
         <div class="card-body">
             
@@ -37,14 +36,17 @@
             @foreach($compra as $com)
             <tr>
                 <td>{{$com->compras_id}}</td>
+                <td>{{$com->name}}</td>
                 <td>{{$com->nombre}}</td>
-                <td>{{$com->nombr}}</td>
-                <td>{{$com->precio}}</td>
-                <td>{{$com->cantidad}}</td>
-                <td>{{$com->total}}</td>
+                <td>{{$com->precio_unitario}}</td>
+                <td>{{$com->cantidad}} Bs.</td>
+                <td>{{$com->cantidad*$com->precio_unitario}} Bs.</td>
                 <td>
                     <a href=""><button class="btn btn-primary">editar<span></span></button></a>
-                    <a href=""><button class="btn btn-danger">eliminar<span></span></button></a>
+                    <form action="{{route('admin.compra.destroy',$com->compras_id)}}" class="d-inline formulario-eliminar" method="post" style="display:inline">
+                        @csrf
+                        @method('delete')
+                        <button class="btn btn-danger" type="submit">Eliminar<span></span></button></a>
                 </td>
             </tr>  
             @endforeach

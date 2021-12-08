@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDetalleventaTable extends Migration
+class CreatedetalleventassTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateDetalleventaTable extends Migration
      */
     public function up()
     {
-        Schema::create('detalleventa', function (Blueprint $table) {
-            $table->Bigincrements('detalleventa_id');
-            $table->unsignedBigInteger('ventas_id');
-            $table->foreign('ventas_id')->references('ventas_id')->on('ventas');
-            $table->unsignedBigInteger('producto_id');
-            $table->foreign('producto_id')->references('producto_id')->on('producto');
+        Schema::create('detalleventass', function (Blueprint $table) {
+            $table->Bigincrements('detalleventass_id');
+        
+            
             $table->string('cantidad');
             $table->decimal('precio');
             $table->decimal('total');
@@ -33,6 +31,6 @@ class CreateDetalleventaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detalleventa');
+        Schema::dropIfExists('detalleventass');
     }
 }

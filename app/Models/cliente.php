@@ -16,9 +16,12 @@ class cliente extends Model
         'nombre',
         'apellido_paterno',
         'apellido_materno',
-        'detalle',
+        'tipo',
+        'ci',
         'edad',
-        'telefono'
+        'telefono',
+        'sexo',
+        'nacionalidad'
     ];
 
     protected $guarded =[

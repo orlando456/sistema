@@ -45,9 +45,9 @@ return [
     |
     */
 
-    'logo' => '<b>CONFEC.</b>FIMOA',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
+    'logo' => '<b>Confec.</b>Fimoa',
+    'logo_img' => 'vendor/adminlte/dist/img/Adminlte.png',
+    'logo_img_clas  s' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'AdminLTE',
@@ -102,7 +102,7 @@ return [
     |
     */
 
-    'classes_auth_card' => 'card-outline card-primary',
+    'classes_auth_card' => 'card-outline card-dark',
     'classes_auth_header' => '',
     'classes_auth_body' => '',
     'classes_auth_footer' => '',
@@ -247,7 +247,7 @@ return [
             'text'        => 'INICIO',
             'url'         => '/admin/index',
             'icon'        => 'fas fa-fw fa-home',
-            'can'         => 'admin.index',
+            //'can'         => 'admin.index',
             
         ],
         [
@@ -324,7 +324,11 @@ return [
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'Lista',
+                    'text' => 'Nueva Venta',
+                    'route'  => 'admin.ventas.create',
+                ],
+                [
+                    'text' => 'Registro de Venta',
                     'route'  => 'admin.ventas.index',
                 ],
             ],

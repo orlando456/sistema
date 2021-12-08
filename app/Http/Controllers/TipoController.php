@@ -23,7 +23,6 @@ class TipoController extends Controller
     {
         $tipodeproducto = new tipodeproducto();
         $tipodeproducto->nombre = $request->nombre;
-        $tipodeproducto->tipo = $request->tipo;
         $tipodeproducto->descripcion = $request->descripcion;
         
 
@@ -47,7 +46,6 @@ class TipoController extends Controller
     public function update(Request $request, tipodeproducto $tipodeproducto)
     {
         $tipodeproducto->nombre = $request->nombre;
-        $tipodeproducto->tipo = $request->tipo;
         $tipodeproducto->descripcion = $request->descripcion;
 
         $tipodeproducto->save();

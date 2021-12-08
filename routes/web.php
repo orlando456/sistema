@@ -52,6 +52,7 @@ Route::get('admin/usuario/{users}/edit', [App\Http\Controllers\UserController::c
 Route::put('admin/usuario/index/{users}', [App\Http\Controllers\UserController::class, 'update'])->name('admin.usuario.update');
 Route::get('admin/usuario/{users}/editrol', [App\Http\Controllers\UserController::class, 'editrol'])->name('admin.usuario.editrol');
 Route::put('admin/usuario/editrol/{users}', [App\Http\Controllers\UserController::class, 'rolupdate'])->name('admin.usuario.rolupdate');
+Route::get('admin/usuario/show/{users}', [App\Http\Controllers\UserController::class, 'show'])->name('admin.usuario.show');
 
 Route::get('admin/proveedor/index', [App\Http\Controllers\ProveedorController::class, 'index'])->name('admin.proveedor.index');
 Route::get('admin/proveedor/create', [App\Http\Controllers\ProveedorController::class, 'create'])->name('admin.proveedor.create');
@@ -59,6 +60,7 @@ Route::post('admin/proveedor/create', [App\Http\Controllers\ProveedorController:
 Route::delete('admin/proveedor/proveedor/{proveedores}', [App\Http\Controllers\ProveedorController::class, 'destroy'])->name('admin.proveedor.destroy');
 Route::get('admin/proveedor/{proveedores}/edit', [App\Http\Controllers\ProveedorController::class, 'edit'])->name('admin.proveedor.edit');
 Route::put('admin/proveedor/index/{proveedores}', [App\Http\Controllers\ProveedorController::class, 'update'])->name('admin.proveedor.update');
+Route::get('admin/proveedor/show/{proveedores}', [App\Http\Controllers\ProveedorController::class, 'show'])->name('admin.proveedor.show');
 
 Route::get('admin/tipo/index', [App\Http\Controllers\TipoController::class, 'index'])->name('admin.tipo.index');
 Route::get('admin/tipo/registrousuario', [App\Http\Controllers\TipoController::class, 'create'])->name('admin.tipo.create');
@@ -68,18 +70,16 @@ Route::get('admin/tipo/{tipodeproducto}/edit', [App\Http\Controllers\TipoControl
 Route::put('admin/tipo/index/{tipodeproducto}', [App\Http\Controllers\TipoController::class, 'update'])->name('admin.tipo.update');
 
 
-
-
-
-
-
 Route::resource('cliente', ClienteController::class)->names('admin.cliente');
 Route::resource('compra', CompraController::class)->names('admin.compra');
-
 Route::resource('producto', ProductoController::class)->names('admin.producto');
 Route::resource('inventario', InventarioController::class)->names('admin.inventario');
 Route::resource('ventas', VentaController::class)->names('admin.ventas');
-
 Route::resource('reporte', ReporteController::class)->names('admin.reporte');
-
 Route::resource('roles', RoleController::class)->names('admin.roles');
+
+Route::get('admin/producto/Reporte', [App\Http\Controllers\ProductoController::class, 'imprimir'])->name('admin.producto.Reporte');
+Route::get('admin/ventas/reporte', [App\Http\Controllers\VentaController::class, 'imprimir'])->name('admin.ventas.reporte');
+Route::get('admin/cliente/Reporte', [App\Http\Controllers\ClienteController::class, 'imprimir'])->name('admin.cliente.Reporte');
+Route::get('admin/inventario/Reporte', [App\Http\Controllers\InventarioController::class, 'imprimir'])->name('admin.inventario.Reporte');
+Route::get('admin/compra/Reporte', [App\Http\Controllers\CompraController::class, 'imprimir'])->name('admin.compra.Reporte');

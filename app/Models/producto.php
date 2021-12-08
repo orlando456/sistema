@@ -16,11 +16,11 @@ class producto extends Model
         'tipo_id',
         'proveedores_id',
         'nombre',
-        'precio',
-        'tela',
-        'logotipo',
+        'marca',
+        'precio_venta',
         'talla',
         'color',
+        'stock',
         'descripcion'
     ];
 

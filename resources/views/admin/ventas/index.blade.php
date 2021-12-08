@@ -9,13 +9,36 @@
 @stop
 
 @section('content_header')
-    <h1>VISTA VENTAS </h1>
+<div class="col-md-12">
+    <div class="card-header p-1 mb-1 bg-dark text-white">
+        <div class="card-title p-1 mb-1 text-white">
+        <h1>Ventas</h1>
+        </div>
+    </div>
+</div>
+    
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                <label for="min">Desde</label>
+                <input type="date" value="<?php echo date('Y-m-d');?>" name="Desde" id="min">
+                </div>
+            </div>
+        
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="min">Hasta</label>
+                <input type="date" value="<?php echo date('Y-m-d');?>" name="Hasta" id="min">
+            </div>
+        </div>
+        </div>
+    
 @stop
 
 @section('content')
-    <p>VENTA </p>
-    <p>-------</p>
-    <a href="{{route('admin.ventas.create')}}"><button class="btn btn-danger">NUEVO REGISTRO<span></span></button></a>
+    
+    <a href="{{route('admin.ventas.create')}}"><button class="btn btn-primary">NUEVA VENTA<span></span></button></a>
+    <a href="{{route('admin.ventas.reporte')}}"><button class="btn btn-dark">Imprimir PDF<span></span></button></a>
     <div class="card">
         <div class="card-body">
             
@@ -26,7 +49,8 @@
                 <th>id</th>
                 <th>Usuario</th>
                 <th>Cliente</th>
-                <th>num</th>
+                <th>Producto</th>
+                <th>cantidad</th>
                 <th>total</th>
                 <th>cambio</th>
                 <th>Acciones</th>
@@ -40,8 +64,11 @@
             <tr>
                 <td>{{$ven->ventas_id}}</td>
                 <td>{{$ven->name}}</td>
-                <td>{{$ven->nombre}}</td>
-                <td>{{$ven->num_comprobante}}</td>
+
+                <td>{{$ven->ci}}</td>
+                <td>{{$ven->n}}</td>
+
+                <td>{{$ven->cantidad}}</td>
                 <td>{{$ven->total}}</td>
                 <td>{{$ven->cambio}}</td>
                 <td>

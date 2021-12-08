@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTipodeproductoTable extends Migration
+class CreatereportTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateTipodeproductoTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipodeproducto', function (Blueprint $table) {
-            $table->bigincrements('tipo_id');
-            $table->string('nombre', 50);
-            $table->string('descripcion', 256)->nullable();
+        Schema::create('report', function (Blueprint $table) {
+            $table->Bigincrements('ventas_id');
+            
+            
+            $table->string('num_comprobante', 10);
+            $table->decimal('total', 11, 2);
+            $table->string('cambio', 20);
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateTipodeproductoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipodeproducto');
+        Schema::dropIfExists('report');
     }
 }

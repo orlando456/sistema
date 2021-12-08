@@ -13,11 +13,11 @@ class compra extends Model
     public $timestamp = false;
 
     protected $fillable =[
-        'user_id', 
-        
+        'id',
         'producto_id',
+        'proveedores_id',
         'cantidad',
-        'precio',
+        'precio_unitario',
         'total',
     ];
 

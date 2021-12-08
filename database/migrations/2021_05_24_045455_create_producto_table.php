@@ -20,13 +20,13 @@ class CreateProductoTable extends Migration
             $table->unsignedBigInteger('proveedores_id');
             $table->foreign('proveedores_id')->references('proveedores_id')->on('proveedores');
             $table->string('nombre', 50);
-            $table->decimal('precio');
-            $table->string('tela', 256)->nullable();
-            $table->string('logotipo', 256)->nullable();
+            $table->string('marca');
+            $table->float('precio_venta');
             $table->string('talla');
             $table->string('color');
-            
+            $table->integer('stock');
             $table->string('descripcion');
+        
             $table->timestamps();
         });
     }

@@ -5,19 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class inventario extends Model
+class pedido extends Model
 {
     use HasFactory;
-    protected $table = 'inventario';
-    protected $primaryKey = 'inventario_id';
+    protected $table = 'pedido';
+    protected $primaryKey = 'id';
     public $timestamp = false;
 
     protected $fillable =[
-        'id',
+        'id_cliente',
         'producto_id',
-        'compras_id',
-        'ventas_id'
-       
+        'descripcion'
     ];
 
     protected $guarded =[

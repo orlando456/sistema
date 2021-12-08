@@ -19,18 +19,19 @@
         <div class="card-body"> 
     <table class="table table-striped" id = "productos">
         <a href="{{route('admin.producto.create')}}"><button class="btn btn-success">NUEVO REGISTRO<span></span></button></a>
+        <a href="{{route('admin.producto.Reporte')}}"><button class="btn btn-dark">Imprimir PDF<span></span></button></a>
         <thead>
             <tr>
-                <th class="btn-dark">tipo</th>
                 <th class="btn-dark">id</th>
+                <th class="btn-dark">tipo</th>
+                
                 <th class="btn-dark">proveedor </th>
                 <th class="btn-dark">nombre</th>
                 <th class="btn-dark">precio</th>
-                <th class="btn-dark">tela</th>
-                <th class="btn-dark">logotipo</th>
+               
                 <th class="btn-dark">talla</th>
                 <th class="btn-dark">color</th>
-                <th class="btn-dark">descripcion</th>
+                <th class="btn-dark">Stock</th>
                 <th class="btn-dark">acciones</th>  
             </tr>
         </thead>
@@ -41,12 +42,11 @@
                 <td>{{$pr->nombre}}</td>
                 <td>{{$pr->prove}}</td>
                 <td>{{$pr->nombr}}</td>
-                <td>{{$pr->precio}}</td>
-                <td>{{$pr->tela}}</td>
-                <td>{{$pr->logotipo}}</td>
+                <td>{{$pr->precio_venta}}</td>
+                
                 <td>{{$pr->talla}}</td>
                 <td>{{$pr->color}}</td>
-                <td>{{$pr->descripcion}}</td>
+                <td>{{$pr->stock}}</td>
                 <td>
                     <a href="{{route('admin.producto.edit',$pr->producto_id)}}"><button class="btn btn-primary">editar<span></span></button></a>
                     <form action="{{route('admin.producto.destroy',$pr->producto_id)}}" method="post" style="display:inline">

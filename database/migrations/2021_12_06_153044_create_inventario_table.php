@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDetalleclienteTable extends Migration
+class CreateInventarioTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateDetalleclienteTable extends Migration
      */
     public function up()
     {
-        Schema::create('detallecliente', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('id_cliente');
-            $table->foreign('id_cliente')->references('id_cliente')->on('cliente');
-            $table->unsignedBigInteger('usuario_id');
-            $table->foreign('usuario_id')->references('usuario_id')->on('usuario');
+        Schema::create('inventario', function (Blueprint $table) {
+            $table->bigincrements('inventario_id');
+            $table->unsignedBigInteger('producto_id');
+            $table->foreign('producto_id')->references('producto_id')->on('producto');
+            $table->unsignedBigInteger('compras_id');
+            $table->foreign('compras_id')->references('compras_id')->on('compra');
             $table->unsignedBigInteger('ventas_id');
             $table->foreign('ventas_id')->references('ventas_id')->on('ventas');
-            
-            $table->decimal('total');
+          
+           
             $table->timestamps();
         });
     }
@@ -34,6 +34,6 @@ class CreateDetalleclienteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detallecliente');
+        Schema::dropIfExists('inventario');
     }
 }

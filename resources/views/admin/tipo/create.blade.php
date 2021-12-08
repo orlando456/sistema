@@ -30,11 +30,7 @@
                     <input type="text" class="form-control" name="nombre"> 
                 </div>
                 <br>
-                <div class="from-gruop">
-                    <label from="tipo" class="control-label">{{('tipo: ')}}</label> 
-                    <input type="text" class="form-control " name="tipo"> 
-
-                </div>
+               
                 <br>
                 <div class="from-gruop">
                     <label from="descripcion" class="control-label">{{('descripcion: ')}}</label> 

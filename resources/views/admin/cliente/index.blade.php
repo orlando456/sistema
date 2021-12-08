@@ -30,16 +30,14 @@
         
     <table class="table table-striped" class="btn btn-dark"  id = "cliente">
         <a href="{{route('admin.cliente.create')}}"><button class="btn btn-success">NUEVO REGISTRO<span></span></button></a>
+        <a href="{{route('admin.cliente.Reporte')}}"><button class="btn btn-dark">Imprimir PDF<span></span></button></a>
         <thead>
             <tr>
                 <th class="btn-dark">Id</th>
                 <th class="btn-dark">Nombre</th>
                 <th class="btn-dark">Apellido Paterno</th>
-                <th class="btn-dark">Apellido Materno</th>
                 <th class="btn-dark">CI</th>
-                <th class="btn-dark">Edad</th>
-                <th class="btn-dark">Telefono</th>
-                <th class="btn-dark">Tiempo</th>
+                <th class="btn-dark">Fecha</th>
                 <th class="btn-dark">Acciones</th>
                 
             </tr>
@@ -51,16 +49,13 @@
                 <td>{{$cli->id_cliente}}</td>
                 <td>{{$cli->nombre}}</td>
                 <td>{{$cli->apellido_paterno}}</td>
-                <td>{{$cli->apellido_materno}}</td>
-                <td>{{$cli->detalle}}</td>
-                <td>{{$cli->edad}}</td>
-                <td>{{$cli->telefono}}</td>
+                <td>{{$cli->ci}}</td>
                 <td>{{$cli->created_at}}</td>
                 <td class="td-actions text-right">
 
-                    <a href="{{route('admin.cliente.edit',$cli->id_cliente)}}" class="btn btn-info"><i class="material-icon">Perfil</i></a>
-                    <a href="{{route('admin.cliente.edit',$cli->id_cliente)}}" class="btn btn-info"><i class="material-icon">Editar</i></a>
                     
+                    <a href="{{route('admin.cliente.edit',$cli->id_cliente)}}" class="btn btn-info"><i class="material-icon">Editar</i></a>
+                    <a href="{{route('admin.cliente.show',$cli->id_cliente)}}" class="btn btn-sm btn-info"><i class="material-icon">perfil</i></a>
                     <form action="{{route('admin.cliente.destroy',$cli->id_cliente)}}" class="d-inline formulario-eliminar" method="post" style="display:inline">
                     @csrf
                     @method('delete')

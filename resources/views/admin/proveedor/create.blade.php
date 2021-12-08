@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'reporte clientes')
+@section('title', 'Registro Proveedor')
 
 
 @section('css')
@@ -9,15 +9,20 @@
 @stop
 
 @section('content_header')
-    <h1>registro de proveedores </h1>
+<div class="col-md-12">
+    <div class="card-header p-1 mb-1 bg-dark text-white">
+        <div class="card-title p-1 mb-1 text-white">
+        <h1>REGISTRO PROVEEDORES</h1>
+        </div>
+    </div>
+</div>
 @stop
 
 @section('content')
-    <p>REPOSTES </p>
-    <p>-------</p>
+    
     
     <div class="card ">
-        <div class="btn btn-dark card-body">
+        <div class="btn btn-white card-body">
             
         
     <table class="table table-striped" id = "proveedor">
@@ -25,44 +30,132 @@
             <form action="{{route('admin.proveedor.store')}}" method="POST">
 
                 @csrf
-                <div class="from-gruop">
-                    <label from="Nombre" class="control-label">{{('Nombre: ')}}</label> 
-                    <input type="text" class="form-control" name="nombre"> 
+                <div class="row">
+                    <label from="Nombre" class="col-sm-2 col-form-label">Nombre de Empresa:</label> 
+                    <div class="col-sm-7">
+                    <input type="text" class="form-control" name="nombre_empresa" placeholder="Ingrese el Nombre de la Empresa"> 
+                    @if($errors->has('nombre_empresa'))
+                        <span class="error text-darger" for="input-nombre_empresa">{{ $errors->first('nombre_empresa')}}</span>
+                    @endif
+                    </div>
                 </div>
                 <br>
-                <div class="from-gruop">
-                    <label from="apellido_paterno" class="control-label">{{('Apellido Paterno: ')}}</label> 
-                    <input type="text" class="form-control " name="apellido_paterno"> 
-
+                <div class="row">
+                    <label from="Nombre" class="col-sm-2 col-form-label">Nombre del Propietario:</label> 
+                    <div class="col-sm-7">
+                    <input type="text" class="form-control" name="nombre" placeholder="Ingrese el Nombre del propietario"> 
+                    @if($errors->has('nombre'))
+                        <span class="error text-darger" for="input-nombre">{{ $errors->first('nombre')}}</span>
+                    @endif
+                    </div>
                 </div>
                 <br>
-                <div class="from-gruop">
-                    <label from="apellido_materno" class="control-label">{{('Apellido Materno: ')}}</label> 
-                    <input type="text" class="form-control " name="apellido_materno"> 
-
+                
+                <div class="row">
+                    <label from="Apellido_paterno" class="col-sm-2 col-form-label">A. Paterno:</label> 
+                    <div class="col-sm-7">
+                    <input type="text" class="form-control" name="apellido_paterno" placeholder="Ingrese el Apellido Paterno"> 
+                    @if($errors->has('apellido_paterno'))
+                        <span class="error text-darger" for="input-apellido_paterno">{{ $errors->first('apellido_paterno')}}</span>
+                    @endif
+                    </div>
                 </div>
                 <br>
-                <div class="from-gruop">
-                    <label from="ci" class="control-label">{{('CI: ')}}</label> 
-                    <input type="text" class="form-control " name="ci"> 
-
+                <div class="row">
+                    <label from="Apellido_materno" class="col-sm-2 col-form-label">A. Materno:</label> 
+                    <div class="col-sm-7">
+                    <input type="text" class="form-control" name="apellido_materno" placeholder="Ingrese el Apellido Materno"> 
+                    @if($errors->has('apellido_materno'))
+                        <span class="error text-darger" for="input-apellido_materno">{{ $errors->first('apellido_materno')}}</span>
+                    @endif
+                    </div>
                 </div>
                 <br>
-                <div class="from-gruop">
-                    <label from="edad" class="control-label">{{('Edad:')}}</label> 
-                    <input type="text" class="form-control" name="edad"> 
-
+                <div class="row">
+                    <label from="nit" class="col-sm-2 col-form-label">nit:</label> 
+                    <div class="col-sm-7">
+                    <input type="text" class="form-control" name="nit" placeholder="Ingrese el Numero de nit"> 
+                    @if($errors->has('nit'))
+                        <span class="error text-darger" for="input-nit">{{ $errors->first('nit')}}</span>
+                    @endif
+                    </div> 
                 </div>
                 <br>
-                <div class="from-gruop">
-                    <label from="telefono" class="control-label">{{('Telefono: ')}}</label> 
-                    <input type="text" class="form-control" name="telefono"> 
-
+                <div class="row">
+                    <label from="ci" class="col-sm-2 col-form-label">Carnet de Identidad:</label> 
+                    <div class="col-sm-7">
+                    <input type="text" class="form-control" name="ci" placeholder="Ingrese el Numero de Documento"> 
+                    @if($errors->has('ci'))
+                        <span class="error text-darger" for="input-ci">{{ $errors->first('ci')}}</span>
+                    @endif
+                    </div>
                 </div>
+                <br>
+                <div class="row">
+                    <label from="direccion" class="col-sm-2 col-form-label">Direccion:</label> 
+                    <div class="col-sm-7">
+                    <input type="text" class="form-control" name="direccion" placeholder="Ingrese la direccion de la Empresa"> 
+                    @if($errors->has('direccion'))
+                        <span class="error text-darger" for="input-direccion">{{ $errors->first('direccion')}}</span>
+                    @endif
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <label from="edad" class="col-sm-2 col-form-label">Edad:</label> 
+                    <div class="col-sm-7">
+                    <input type="text" class="form-control" name="edad" placeholder="Ingrese la Edad"> 
+                    @if($errors->has('edad'))
+                        <span class="error text-darger" for="input-edad">{{ $errors->first('edad')}}</span>
+                    @endif
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <label from="email" class="col-sm-2 col-form-label">Email :</label> 
+                    <div class="col-sm-7">
+                    <input type="text" class="form-control" name="email" placeholder="Ingrese el Email"> 
+                    @if($errors->has('email'))
+                        <span class="error text-darger" for="input-email">{{ $errors->first('email')}}</span>
+                    @endif
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <label from="ciudad" class="col-sm-2 col-form-label">Ubicación:</label> 
+                    <div class="col-sm-7">
+                    <input type="text" class="form-control" name="ciudad" placeholder="Ingrese el Ciudad de la Empresa"> 
+                    @if($errors->has('ciudad'))
+                        <span class="error text-darger" for="input-ciudad">{{ $errors->first('ciudad')}}</span>
+                    @endif
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <label from="telefono" class="col-sm-2 col-form-label">Telefono:</label> 
+                    <div class="col-sm-7">
+                    <input type="text" class="form-control" name="telefono" placeholder="Ingrese el Numero de Telefono"> 
+                    @if($errors->has('telefono'))
+                        <span class="error text-darger" for="input-telefono">{{ $errors->first('telefono')}}</span>
+                    @endif
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <label from="estado" class="col-sm-2 col-form-label">Estado:</label> 
+                    <div class="col-sm-7">
+                    <input type="text" class="form-control" name="estado" placeholder="Ingrese el Estado"> 
+                    @if($errors->has('estado'))
+                        <span class="error text-darger" for="input-estado">{{ $errors->first('estado')}}</span>
+                    @endif
+                    </div>
+                </div>
+                <br>
                 <br>
 
                 <td>
                     <a href=""><button class="btn btn-info" type="submit">GUARDAR<span></span></button></a>
+                    <a href="{{route('admin.cliente.index')}}" class="btn btn-danger" type="submit">CANCELAR</a>
                 </td>
             </form>
 

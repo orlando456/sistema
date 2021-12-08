@@ -9,12 +9,16 @@
 @stop
 
 @section('content_header')
-    <h1>EDITAR USUARIO </h1>
+    <div class="col-md-12">
+        <div class="card-header p-1 mb-1 bg-primary text-primary">
+            <div class="card-title mb-1 text-white">
+            <h1 style="text-center">Editar Datos</h1>
+            </div>
+        </div>
+    </div>
 @stop
 
 @section('content')
-    <p> </p>
-    <p>-------</p>
     
     <div class="card">
         <div class="card-body">
@@ -26,21 +30,25 @@
 
                 @csrf
                 @method('put')
-                <label> 
-                    Nombre: 
-                    <br>
+                
+                <form class="form-inline" role="form">
+                    <div class="form-group">
+                        <label class="sr-only" for="email">Email address:</label>
+                        <input type="email" class="form-control" id="email">
+                      </div>
+                <div class="from-gruop">
+                    <label from="Nombre" class="sr-only">{{('Nombre: ')}}</label> 
                     <input type="text" name="name" value="{{$users->name}}">
-                </label>
+                </div> 
                 <br>
-                <label>
-                    Email: 
-                    <br>
+                
+                <div class="from-gruop">
+                    <label from="email" class="control-label">{{('Email: ')}}</label> 
                     <input type="text" name="email" value="{{$users->email}}">
                 </label>
                 <br>
-                <label>
-                    Contraseña: 
-                    <br>
+                <div class="from-gruop">
+                    <label from="password" class="control-label">{{('Contraseña: ')}}</label> 
                     <input type="text" name="password" value="{{$users->password}}">
                 </label>
                 <br>
@@ -48,6 +56,7 @@
                 <td>
                     <a href=""><button class="btn btn-primary" type="submit">EDITAR<span></span></button></a>
                 </td>
+            </form>
             </form>
 
 

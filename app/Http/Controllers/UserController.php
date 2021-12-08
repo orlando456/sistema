@@ -29,8 +29,13 @@ class UserController extends Controller
 
         $users->save();
 
-        return redirect()->route('admin.usuario.index', $users);
+        return redirect()->route('admin.usuario.index')->with('success'.'Usuario Creado Correctamente');
         
+    }
+    public function show(User $users)
+    {
+        //$users = User::find($id);
+        return view('admin.usuario.show',compact('users'));
     }
 
 

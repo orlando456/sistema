@@ -18,9 +18,12 @@ class CreateClienteTable extends Migration
             $table->string('nombre');
             $table->string('apellido_paterno');
             $table->string('apellido_materno');
-            $table->integer('detalle');
+            $table->string('tipo');
+            $table->integer('ci');
             $table->integer('edad');
+            $table->string('sexo');
             $table->integer('telefono');
+            $table->string('nacionalidad');
             $table->timestamps();
         });
     }

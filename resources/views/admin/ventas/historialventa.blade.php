@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'tipo')
+@section('title', 'ventas')
 
 
 @section('css')
@@ -9,44 +9,70 @@
 @stop
 
 @section('content_header')
-    <h1>TIPOS DE PRODUCTO </h1>
+    <h1>VISTA VENTAS </h1>
+<form action="<?php echo base_url;?>admin/ventas/pdf" method="POST" target="_blank">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+            <label for="min">Desde</label>
+            <input type="date" value="<?php echo date('Y-m-d');?>" name="Desde" id="min">
+            </div>
+        </div>
+    
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="min">Hasta</label>
+            <input type="date" value="<?php echo date('Y-m-d');?>" name="Hasta" id="min">
+        </div>
+    </div>
+    </div>
+</form> 
+    
 @stop
 
 @section('content')
     
-    <a href="{{route('admin.tipo.create')}}"><button class="btn btn-danger">NUEVO REGISTRO<span></span></button></a>
+    <a href="{{route('admin.ventas.create')}}"><button class="btn btn-danger">NUEVO REGISTRO<span></span></button></a>
     <div class="card">
         <div class="card-body">
             
         
-    <table class="table table-striped" id = "tipodeproducto">
+    <table class="table table-striped" id = "cliente">
         <thead>
             <tr>
-                <th class="btn-dark">Id</th>
-                <th class="btn-dark">Tipo de Producto</th>
-                <th class="btn-dark">Tipo</th>
-                <th class="btn-dark">Acciones</th>
+                <th>id</th>
+                <th>Usuario</th>
+                <th>Cliente</th>
+                <th>num</th>
+                <th>total</th>
+                <th>cambio</th>
+                <th>Acciones</th>
+                
                 
             </tr>
         </thead>
         <tbody>
-        <tbody>
-            @foreach($tipodeproducto as $t)
+            
+            @foreach($ventas as $ven)
             <tr>
-                <td>{{$t->tipo_id}}</td>
-                <td>{{$t->nombre}}</td>
-                <td>{{$t->tipo}}</td>
+                <td>{{$ven->ventas_id}}</td>
+                <td>{{$ven->name}}</td>
+                <td>{{$ven->nombre}}</td>
+                <td>{{$ven->num_comprobante}}</td>
+                <td>{{$ven->total}}</td>
+                <td>{{$ven->cambio}}</td>
                 <td>
-                    <a href="{{route('admin.tipo.edit',$t->tipo_id)}}" class="btn btn-info"><i class="material-icon">Modificar</i></a>
+                    <a href="{{route('admin.ventas.edit',$ven->ventas_id)}}" class="btn btn-info"><i class="material-icon">editar</i></a>
                     
-                    <form action="{{route('admin.tipo.destroy',$t->tipo_id)}}" method="post" style="display:inline">
+                    <form action="{{route('admin.ventas.destroy',$ven->ventas_id)}}" method="post" style="display:inline">
                     @csrf
-                    @method('Delete')
+                    @method('delete')
                     <button class="btn btn-danger" type="submit">eliminar<span></span></button></a>
                     </form>
                 </td>
             </tr>  
-            @endforeach
+            @endforeach  
+            
         </tbody>
     </table>
     </div>
@@ -62,7 +88,7 @@
     <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.7/js/responsive.bootstrap4.min.js"></script>
     <script>
-        $('#tipodeproducto').DataTable({
+        $('#cliente').DataTable({
             responsive:true,
             autowidth:false,
             

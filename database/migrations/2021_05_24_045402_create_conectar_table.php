@@ -15,8 +15,8 @@ class CreateConectarTable extends Migration
     {
         Schema::create('conectar', function (Blueprint $table) {
             $table->bigincrements('conetar_id');
-            $table->unsignedBigInteger('usuario_id');
-            $table->foreign('usuario_id')->references('usuario_id')->on('usuario');
+            $table->unsignedBigInteger('id');
+            $table->foreign('id')->references('id')->on('users');
             $table->timestamps();
         });
     }

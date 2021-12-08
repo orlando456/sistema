@@ -20,7 +20,7 @@ class LoginController extends Controller {
       |
      */
 
-    //use AuthenticatesUsers;
+    use AuthenticatesUsers;
 
     /**
      * Where to redirect users after login.
@@ -46,9 +46,10 @@ class LoginController extends Controller {
         ]);
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('cliente');
+            return redirect()->intended('admin/index');
         }
         return back()->withErrors(['email' => 'no vlaido']);
     }
+    
 
 }

@@ -4,27 +4,28 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCompraTable extends Migration
+class CreateVentaTable extends Migration
 {
     /**
      * Run the migrations.
      *
-     * @return voids
+     * @return void
      */
     public function up()
     {
-        Schema::create('compra', function (Blueprint $table) {
-            $table->bigincrements('compras_id');
+        Schema::create('ventas', function (Blueprint $table) {
+            $table->Bigincrements('ventas_id');
+            $table->unsignedBigInteger('id_cliente');
+            $table->foreign('id_cliente')->references('id_cliente')->on('cliente');
             $table->unsignedBigInteger('id');
             $table->foreign('id')->references('id')->on('users');
             $table->unsignedBigInteger('producto_id');
             $table->foreign('producto_id')->references('producto_id')->on('producto');
-            $table->unsignedBigInteger('proveedores_id');
-            $table->foreign('proveedores_id')->references('proveedores_id')->on('proveedores');
-            $table->string('cantidad');
-            $table->decimal('precio_unitario');
-            $table->string('total');
-            $table->string('estado');
+            $table->unsignedBigInteger('tipo_id');
+            $table->foreign('tipo_id')->references('tipo_id')->on('tipodeproducto');
+            $table->float('cantidad', 10);
+            $table->decimal('total', 11, 2);
+            $table->decimal('cambio', 20);
             $table->timestamps();
         });
     }
@@ -36,6 +37,6 @@ class CreateCompraTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('compra');
+        Schema::dropIfExists('venta');
     }
 }

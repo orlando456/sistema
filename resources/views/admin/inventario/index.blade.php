@@ -9,13 +9,19 @@
 @stop
 
 @section('content_header')
-    <h1>VISTA INVENTARIO</h1>
+<div class="col-md-12">
+    <div class="card-header p-1 mb-1 bg-dark text-white">
+        <div class="card-title p-1 mb-1 text-white">
+        <h1>INVENTARIO</h1>
+        </div>
+    </div>
+</div>
 @stop
 
 @section('content')
-    <p>LISTA DE LOS INVENTARIOS </p>
-    <p>-------</p>
+    
     <a href="{{route('admin.inventario.create')}}"><button class="btn btn-danger">NUEVO REGISTRO<span></span></button></a>
+    <a href="{{route('admin.inventario.Reporte')}}"><button class="btn btn-dark">Imprimir PDF<span></span></button></a>
     <div class="card">
         <div class="card-body">
             
@@ -23,15 +29,19 @@
     <table class="table table-striped" id = "inventario">
         <thead>
             <tr>
-                <th>id</th>
-                <th>Producto</th>
-                <th>usuario</th>
-                <th>Entrada</th>
-                <th>Salida</th>
-                <th>Procio</th>
-                <th>Stock</th>
-                <th>Total</th>
-                <th>acciones</th>
+                <th class="btn-dark">id</th>
+                <th class="btn-dark">Usuario</th>
+                <th class="btn-dark">Producto</th>
+                <th class="btn-dark">Precio Unitario</th>
+                <th class="btn-dark">Precio Venta</th>
+                <th class="btn-dark">CPP</th>
+                <th class="btn-dark">Cantidad Entrada</th>
+                <th class="btn-dark">Valor Entrada</th>
+                <th class="btn-dark">Cantidad Salida</th>
+                <th class="btn-dark">Valor Salida</th>
+                <th class="btn-dark">Cantidad Saldo</th>
+                <th class="btn-dark">Valor Saldo</th>
+                <th class="btn-dark">Acciones</th>
                 
             </tr>
         </thead>
@@ -41,11 +51,15 @@
                 <td>{{$in->inventario_id}}</td>
                 <td>{{$in->name}}</td>
                 <td>{{$in->nombre}}</td>
-                <td>{{$in->cantidad_entrada}}</td>
-                <td>{{$in->cantidad_salida}}</td>
                 <td>{{$in->precio_unitario}}</td>
-                <td>{{$in->stock}}</td>
-                <td>{{$in->total}}</td>
+                <td>{{$in->precio_venta}}</td>
+                <td>{{$in->precio_unitario*$in->cantidad/$in->cantidad}}</td>
+                <td>{{$in->cantidad}}</td>
+                <td>{{$in->precio_unitario*$in->cantidad}}</td>
+                <td>{{$in->cantidadven}}</td>
+                <td>{{$in->precio_unitario*$in->cantidad/$in->cantidad*$in->cantidadven}}</td>
+                <td>{{$in->cantidad-$in->cantidadven}}</td>
+                <td>{{$in->precio_unitario*$in->cantidad-$in->precio_unitario*$in->cantidad/$in->cantidad*$in->cantidadven}}</td>
                 <td>
                     <a href="{{route('admin.inventario.edit',$in->inventario_id)}}" class="btn btn-info"><i class="material-icon">Editar</i></a>
                     
